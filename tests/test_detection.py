@@ -32,7 +32,7 @@ def test_executable(attributes: Attributes):
 
     path = attributes['process.executable.path']
     assert isinstance(path, str)
-    assert 'python3' in path
+    assert '/python3' in path
 
 
 def test_command_line(attributes: Attributes):
@@ -45,12 +45,12 @@ def test_command_line(attributes: Attributes):
     command_args = attributes['process.command_args']
     assert isinstance(command_args, str)
 
-    assert 'python3' in command_line
-    assert 'python3' in command
-    assert 'python3' not in command_args
+    assert '/python' in command_line
+    assert '/python' in command
+    assert '/python' not in command_args
 
-    assert 'pytest' in command_line
-    assert 'pytest' not in command
-    assert 'pytest' in command_args
+    assert '/pytest' in command_line
+    assert '/pytest' not in command
+    assert '/pytest' in command_args
 
     assert command_line == (command + ' ' + command_args).strip()
