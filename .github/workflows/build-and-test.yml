@@ -14,10 +14,10 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ["3.6", "3.7", "3.8", "3.9", "3.10"]
-        formatting-arguments: --black
+        formatting-arguments: ["--black"]
         include:
         - python-version: "3.6"
-          formatting-arguments:
+          formatting-arguments: ""
 
     steps:
     - uses: actions/checkout@v3
