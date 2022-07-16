@@ -35,7 +35,6 @@ disable = [
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = """
-    --black
     --isort
     --pylint
     --mypy
