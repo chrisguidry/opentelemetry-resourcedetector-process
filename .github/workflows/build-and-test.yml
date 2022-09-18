@@ -13,18 +13,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10"]
-        formatting-arguments: ["--black"]
-        include:
-        - python-version: "3.6"
-          formatting-arguments: ""
+        python-version: ["3.6", "3.7", "3.8", "3.9", "3.10"]
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
     - uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
     - run: python -m pip install --upgrade pip build
     - run: python -m build
     - run: pip install -e '.[dev]'
-    - run: pytest ${{matrix.formatting-arguments}}
+    - run: pytest
+    - run: pre-commit run --all-files

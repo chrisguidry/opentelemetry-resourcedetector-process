@@ -1,4 +1,5 @@
 import sys
+from importlib.metadata import version
 from typing import Dict, Union
 
 from opentelemetry.sdk.resources import Resource, ResourceDetector
@@ -6,6 +7,9 @@ from opentelemetry.semconv.resource import ResourceAttributes
 from psutil import Process
 
 Attributes = Dict[str, Union[str, bool, int, float]]
+
+
+__version__ = version("opentelemetry_resourcedetector_process")
 
 
 class ProcessResourceDetector(ResourceDetector):
