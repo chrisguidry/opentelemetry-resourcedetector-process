@@ -21,9 +21,12 @@ class ProcessResourceDetector(ResourceDetector):
         python_version_string = ".".join(
             map(
                 str,
-                python_version[:3]
-                if python_version.releaselevel == "final" and not python_version.serial
-                else python_version,
+                (
+                    python_version[:3]
+                    if python_version.releaselevel == "final"
+                    and not python_version.serial
+                    else python_version
+                ),
             )
         )
 
