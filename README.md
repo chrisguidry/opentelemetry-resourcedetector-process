@@ -1,6 +1,6 @@
 # opentelemetry-resourcedetector-process
 
-An OpenTelemetry package to populates Resource attributes from the running process.
+An OpenTelemetry package to populate Resource attributes from the running process.
 
 ## Usage
 
@@ -15,5 +15,5 @@ resource = get_aggregated_resources([
     SomeOtherResourceDetector()
 ])
 
-... pass the returned `resource` to a TracerProvder, for example ...
+... pass the returned `resource` to a TracerProvider, for example ...
 ```
